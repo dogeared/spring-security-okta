@@ -15,7 +15,7 @@
     },
     "OKTA_REDIRECT_URI": {
       "description": "The full fully qualified url to the resultant (secure) pdf to serve after login",
-      "value": "https://myapp.herokuapp.com/secure/secure.pdf"
+      "value": "https://myapp.herokuapp.com/secure"
     },
     "SECURITY_OAUTH2_CLIENT_CLIENT_ID": {
       "description": "Your Okta OIDC application client id",
