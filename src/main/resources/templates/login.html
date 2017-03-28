@@ -1,0 +1,60 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!--/*/ <th:block th:include="fragments/head :: head"/> /*/-->
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="box col-md-6 col-md-offset-3">
+                    <div class="okta-header">
+                        <img width="100px" src="https://www.okta.com/sites/all/themes/Okta/images/logo.svg"/>
+                    </div>
+
+                    <p/>
+                    <form class="form-inline" id="loginForm">
+                        <div class="form-group">
+                            <label class="sr-only" for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script th:inline="javascript">
+
+            $('#loginForm').submit(function (event) {
+                event.preventDefault();
+
+                var baseUri = /*[[${oktaApiUri}]]*/ 'dummy_default';
+                var clientId = /*[[${oktaApiClientId}]]*/ 'dummy_default';
+                var redirectUri = /*[[${oktaRedirectUri}]]*/ 'dummydefault';
+
+                var authClient = new OktaAuth({
+                    url: baseUri,
+                    clientId: clientId
+                });
+
+                authClient.signIn({
+                    username: $('#email').val(),
+                    password: $('#password').val()
+                }).then(function(transaction) {
+                    if (transaction.status === 'SUCCESS') {
+                        authClient.token.getWithRedirect({
+                            sessionToken: transaction.sessionToken,
+                            redirectUri: redirectUri
+                        })
+                    } else {
+                        throw 'We cannot handle the ' + transaction.status + ' status';
+                    }
+                }).fail(function(err) {
+                    console.error(err);
+                });
+            });
+        </script>
+    </body>
+</html>

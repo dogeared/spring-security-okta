@@ -1,0 +1,53 @@
+{
+  "name": "Spring into Okta",
+  "description": "Spring Boot and Spring Security connected to Okta with custom login and registration screen",
+  "repository": "https://github.com/dogeared/spring-into-okta.git",
+  "keywords": ["spring boot", "identity", "security", "authentication"],
+  "success_url": "/",
+  "env": {
+    "OKTA_API_URL": {
+      "description": "the fully qualified url to your okta tenant",
+      "value": "https://changeme.oktapreview.com"
+    },
+    "OKTA_API_TOKEN": {
+      "description": "The Okta API token you created for use with this app",
+      "value": "changeme"
+    },
+    "OKTA_REDIRECT_URI": {
+      "description": "The full fully qualified url to the resultant (secure) pdf to serve after login",
+      "value": "https://myapp.herokuapp.com/secure/secure.pdf"
+    },
+    "SECURITY_OAUTH2_CLIENT_CLIENT_ID": {
+      "description": "Your Okta OIDC application client id",
+      "value": "changeme"
+    },
+    "SECURITY_OAUTH2_CLIENT_CLIENT_SECRET": {
+      "description": "Your Okta OIDC application client secret",
+      "value": "changeme"
+    },
+    "SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI": {
+      "description": "The token uri found by following your Okta Authorization Server metadata uri",
+      "value": "changeme"
+    },
+    "SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI": {
+      "description": "The user authorization uri found by following your Okta Authorization Server metadata uri",
+      "value": "changeme"
+    },
+    "SECURITY_OAUTH2_CLIENT_AUTHENTICATION_SCHEME": {
+      "description": "Should be form",
+      "value": "form"
+    },
+    "SECURITY_OAUTH2_CLIENT_SCOPE": {
+      "description": "Requested scopes for OIDC",
+      "value": "openid profile email"
+    },
+    "SECURITY_OAUTH2_RESOURCE_USER_INFO_URI": {
+      "description": "The user info uri found by following your Okta Authorization Server metadata uri (with /.well-known/openid-configuration)",
+      "value": "changeme"
+    },
+    "SECURITY_OAUTH2_RESOURCE_PREFER_TOKEN_INFO": {
+      "description": "Should be false",
+      "value": "false"
+    }
+  }
+}
