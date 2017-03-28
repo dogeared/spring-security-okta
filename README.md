@@ -127,4 +127,4 @@ Note: Most of the variables can be found by following the metadata URI you saved
 
 # Deploy to Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/dogeared/spring-into-okta.git)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
