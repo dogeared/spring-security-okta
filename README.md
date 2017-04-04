@@ -66,7 +66,12 @@ or to Heroku (Click [here](#deploy-to-heroku) to jump ahead to deploy to Heroku.
 
 4. Next, we'll setup the OIDC Application
     1. Navigate to Applications
-    2. Click `Add Application`. Select `OpenID Connect`
+    2. Click `Add Application`. 
+    3. Click `Create New App`
+    
+        ![09_CreateOIDC](docs/09_CreateOIDC.png)
+    
+    4. Select `OpenID Connect`
    
         ![10_CreateOIDC](docs/10_CreateOIDC.png)
        
@@ -81,6 +86,26 @@ or to Heroku (Click [here](#deploy-to-heroku) to jump ahead to deploy to Heroku.
     5. Add redirect uris for `/`, `/login`, `/doit` and `/secure`
    
         ![13_CreateOIDC](docs/13_CreateOIDC.png)
+        
+    6. Assign a user to the application
+        1. Click the People tab
+        
+            ![14_CreateOIDC](docs/14_CreateOIDC.png)
+            
+        2. Click `Assign to People`
+        
+            ![15_CreateOIDC](docs/15_CreateOIDC.png)
+            
+        3. Click `Assign`
+        
+            ![16_CreateOIDC](docs/16_CreateOIDC.png)
+            
+        4. Click `Save and Go Back`
+        
+            ![17_CreateOIDC](docs/17_CreateOIDC.png)
+            
+        5. Click `Done`
+            
         
     6. On the same page, make note of the `Client ID` and the `Client secret`. You'll use it later.
         
@@ -109,7 +134,9 @@ or to Heroku (Click [here](#deploy-to-heroku) to jump ahead to deploy to Heroku.
 At a minimum, you need to set the following environment variables or settings in `application.yml`
 (environment variables are recommended so as to not put sensitive information in a repo)
 
-Note: Most of the variables can be found by following the metadata URI you saved earlier
+Note: Most of the variables can be found by following the metadata URI you saved earlier. Hint: If you replace the end 
+`oauth-authorization-server` with `openid-configuration`, you'll get everything you need, including the `userinfo` 
+endpoint.
 
 | Env Variable                                         | Yaml property                               |
 |------------------------------------------------------|---------------------------------------------|
